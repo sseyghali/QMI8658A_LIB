@@ -24,8 +24,6 @@ The QMI8658A includes:
 
 ## External Dependencies
 
-The driver expects the same platform pieces used by the MC3416 codebase:
-
 - `target_port.h`, providing:
   - `t_malloc(size_t)`
   - `t_free(void *)`
