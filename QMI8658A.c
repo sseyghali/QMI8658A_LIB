@@ -560,7 +560,7 @@ bool QMI8658A_ConfigureMotion(qmi8658a_t *dev, const qmi8658a_motion_config_t *c
     cal[4] = cfg->no_y_thr;
     cal[5] = cfg->no_z_thr;
     cal[6] = cfg->mode_ctrl;
-    cal[7] = 0x10;
+    cal[7] = 0x01;
     if (!QMI8658A_Ctrl9Write(dev, QMI8658A_CTRL_CMD_CONFIGURE_MOTION, cal))
         return false;
 
@@ -569,7 +569,7 @@ bool QMI8658A_ConfigureMotion(qmi8658a_t *dev, const qmi8658a_motion_config_t *c
     _QMI8658A_U16_TO_CAL(cal, 2, cfg->sig_wait_window);
     _QMI8658A_U16_TO_CAL(cal, 4, cfg->sig_confirm_window);
     cal[6] = 0x00;
-    cal[7] = 0x20;
+    cal[7] = 0x02;
     return QMI8658A_Ctrl9Write(dev, QMI8658A_CTRL_CMD_CONFIGURE_MOTION, cal);
 }
 
@@ -605,7 +605,7 @@ bool QMI8658A_ConfigureTap(qmi8658a_t *dev, const qmi8658a_tap_config_t *cfg)
     _QMI8658A_U16_TO_CAL(cal, 2, cfg->tap_window);
     _QMI8658A_U16_TO_CAL(cal, 4, cfg->double_tap_window);
     cal[6] = 0x00;
-    cal[7] = 0x10;
+    cal[7] = 0x01;
     if (!QMI8658A_Ctrl9Write(dev, QMI8658A_CTRL_CMD_CONFIGURE_TAP, cal))
         return false;
 
@@ -614,7 +614,7 @@ bool QMI8658A_ConfigureTap(qmi8658a_t *dev, const qmi8658a_tap_config_t *cfg)
     _QMI8658A_U16_TO_CAL(cal, 2, cfg->peak_mag_thr);
     _QMI8658A_U16_TO_CAL(cal, 4, cfg->udm_thr);
     cal[6] = 0x00;
-    cal[7] = 0x20;
+    cal[7] = 0x02;
     return QMI8658A_Ctrl9Write(dev, QMI8658A_CTRL_CMD_CONFIGURE_TAP, cal);
 }
 
@@ -659,7 +659,7 @@ bool QMI8658A_ConfigurePedometer(qmi8658a_t *dev, const qmi8658a_pedometer_confi
     _QMI8658A_U16_TO_CAL(cal, 2, cfg->fix_peak2peak);
     _QMI8658A_U16_TO_CAL(cal, 4, cfg->fix_peak);
     cal[6] = 0x00;
-    cal[7] = 0x10;
+    cal[7] = 0x01;
     if (!QMI8658A_Ctrl9Write(dev, QMI8658A_CTRL_CMD_CONFIGURE_PEDOMETER, cal))
         return false;
 
@@ -669,7 +669,7 @@ bool QMI8658A_ConfigurePedometer(qmi8658a_t *dev, const qmi8658a_pedometer_confi
     cal[4] = cfg->fix_precision;
     cal[5] = cfg->sig_count;
     cal[6] = 0x00;
-    cal[7] = 0x20;
+    cal[7] = 0x02;
     return QMI8658A_Ctrl9Write(dev, QMI8658A_CTRL_CMD_CONFIGURE_PEDOMETER, cal);
 }
 
